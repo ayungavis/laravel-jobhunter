@@ -15,7 +15,7 @@ class CreateUsersProjectsTable extends Migration
     {
         Schema::create('users_projects', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->increment('user_id');
+            $table->integer('user_id');
             $table->string('name_of_project')->nullable();
             $table->string('start_year')->nullable();
             $table->string('end_year')->nullable();
