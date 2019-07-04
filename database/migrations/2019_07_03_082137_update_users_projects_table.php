@@ -26,6 +26,9 @@ class UpdateUsersProjectsTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::disableForeignKeyConstraints();
+        Schema::table('users_projects', function (BluePrint $table) {
+            $table->dropForeign('users_projects_user_id_foreign');
+        });
     }
 }

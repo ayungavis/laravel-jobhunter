@@ -13,7 +13,7 @@ class CreateUsersLanguangesTable extends Migration
      */
     public function up()
     {
-        Schema::create('users_languanges', function (Blueprint $table) {
+        Schema::create('users_languages', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('user_id');
             $table->string('languange')->nullable();
@@ -29,6 +29,7 @@ class CreateUsersLanguangesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users_languanges');
+        Schema::disableForeignKeyConstraints();
+        Schema::dropIfExists('users_languages');
     }
 }

@@ -13,7 +13,7 @@ class CreateVoluenteerTypesTable extends Migration
      */
     public function up()
     {
-        Schema::create('voluenteer_types', function (Blueprint $table) {
+        Schema::create('volunteer_types', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name')->nullable();
             $table->timestamps();
@@ -27,6 +27,7 @@ class CreateVoluenteerTypesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('voluenteer_types');
+        Schema::disableForeignKeyConstraints();
+        Schema::dropIfExists('volunteer_types');
     }
 }

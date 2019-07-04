@@ -26,7 +26,11 @@ class CreateCompanyCategoriesTable extends Migration
      * @return void
      */
     public function down()
-    {
+    {   
+        Schema::disableForeignKeyConstraints();
+        Schema::table('companies', function (BluePrint $table) {
+            $table->dropForeign('companies_company_category_id_foreign');
+        });
         Schema::dropIfExists('company_categories');
     }
 }

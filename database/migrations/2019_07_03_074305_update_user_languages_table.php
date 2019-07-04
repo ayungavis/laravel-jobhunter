@@ -13,7 +13,7 @@ class UpdateUserLanguagesTable extends Migration
      */
     public function up()
     {
-        Schema::table('users_languanges', function (Blueprint $table) {
+        Schema::table('users_languages', function (Blueprint $table) {
             $table->unsignedInteger('user_id')->change();
             $table->foreign('user_id')->references('id')->on('users');
         });
@@ -26,6 +26,9 @@ class UpdateUserLanguagesTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::disableForeignKeyConstraints();
+        Schema::table('users_languages', function (BluePrint $table) {
+            $table->dropForeign('users_languages_user_id_foreign');
+        });
     }
 }

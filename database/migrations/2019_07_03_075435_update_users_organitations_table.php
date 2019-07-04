@@ -13,7 +13,7 @@ class UpdateUsersOrganitationsTable extends Migration
      */
     public function up()
     {
-        Schema::table('users_organitations', function (Blueprint $table) {
+        Schema::table('users_organizations', function (Blueprint $table) {
             $table->unsignedInteger('user_id')->change();
             $table->foreign('user_id')->references('id')->on('users');
         });
@@ -26,6 +26,9 @@ class UpdateUsersOrganitationsTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::disableForeignKeyConstraints();
+        Schema::table('users_organizations', function (BluePrint $table) {
+            $table->dropForeign('users_organizations_user_id_foreign');
+        });
     }
 }

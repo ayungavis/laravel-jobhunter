@@ -27,6 +27,7 @@ class CreateJobTypesTable extends Migration
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('job_types');
     }
 }

@@ -36,6 +36,14 @@ class UpdateVacanciesTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::disableForeignKeyConstraints();
+        Schema::table('vacancies', function (BluePrint $table) {
+            $table->dropForeign('vacancies_skill_id_foreign');
+            $table->dropForeign('vacancies_company_id_foreign');
+            $table->dropForeign('vacancies_job_type_id_foreign');
+            $table->dropForeign('vacancies_job_level_id_foreign');
+            $table->dropForeign('vacancies_job_category_id_foreign');
+            $table->dropForeign('vacancies_educational_level_id_foreign');
+        });
     }
 }

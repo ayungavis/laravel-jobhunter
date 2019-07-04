@@ -28,6 +28,10 @@ class UpdateUsersSkillsTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::disableForeignKeyConstraints();
+        Schema::table('users_skills', function (BluePrint $table) {
+            $table->dropForeign('users_skills_user_id_foreign');
+            $table->dropForeign('users_skills_skill_id_foreign');
+        });
     }
 }

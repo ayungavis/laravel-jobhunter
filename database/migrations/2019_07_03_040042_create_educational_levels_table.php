@@ -27,6 +27,7 @@ class CreateEducationalLevelsTable extends Migration
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('educational_levels');
     }
 }

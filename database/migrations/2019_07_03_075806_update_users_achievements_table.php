@@ -26,6 +26,9 @@ class UpdateUsersAchievementsTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::disableForeignKeyConstraints();
+        Schema::table('users_achievements', function (BluePrint $table) {
+            $table->dropForeign('users_achievements_user_id_foreign');
+        });
     }
 }

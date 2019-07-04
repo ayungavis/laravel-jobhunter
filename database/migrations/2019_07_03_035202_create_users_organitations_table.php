@@ -13,7 +13,7 @@ class CreateUsersOrganitationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('users_organitations', function (Blueprint $table) {
+        Schema::create('users_organizations', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('user_id');
             $table->string('name_of_organitation')->nullable();
@@ -34,6 +34,7 @@ class CreateUsersOrganitationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users_organitations');
+        Schema::disableForeignKeyConstraints();
+        Schema::dropIfExists('users_organizations');
     }
 }

@@ -26,6 +26,9 @@ class UpdateCompaniesSocialMediasTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::disableForeignKeyConstraints();
+        Schema::table('companies_social_medias', function (BluePrint $table) {
+            $table->dropForeign('companies_social_medias_social_media_id_foreign');
+        });
     }
 }
