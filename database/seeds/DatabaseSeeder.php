@@ -14,7 +14,14 @@ class DatabaseSeeder extends Seeder
         $this->call([
             // SkillSeeder::class,
             // CompanyCategorySeeder::class,
-            // CompanySeeder::class
+            // CompanySeeder::class,
+            // EducationalLevelsSeeder::class,
+            // JobCategoriesSeeder::class,
+            // JobLevelSeeder::class,
+            // JobTypeSeeder::class,
+            // VacanciesSeeder::class,
+            // UsersSeeder::class
+
         ]);
     }
 }

@@ -12,23 +12,23 @@ class CompanyCategorySeeder extends Seeder
     public function run()
     {
         DB::table('company_categories')->insert([
-        	'name' => 'Industry'
+            'name' => 'Industry'
         ]);
 
         DB::table('company_categories')->insert([
-        	'name' => 'Business'
+            'name' => 'Business'
         ]);
 
         DB::table('company_categories')->insert([
-        	'name' => 'Bank'
+            'name' => 'Bank'
         ]);
 
         DB::table('company_categories')->insert([
-        	'name' => 'Contractor'
+            'name' => 'Contractor'
         ]);
 
         DB::table('company_categories')->insert([
-        	'name' => 'Mining'
+            'name' => 'Mining'
         ]);
     }
 }
