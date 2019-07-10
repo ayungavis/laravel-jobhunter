@@ -26,6 +26,10 @@ class UpdateCommentsTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::disableForeignKeyConstraints();
+        Schema::table('comments', function (BluePrint $table) {
+            $table->dropForeign('comments_user_id_foreign');
+            $table->dropForeign('comments_status_id_foreign');
+        });
     }
 }

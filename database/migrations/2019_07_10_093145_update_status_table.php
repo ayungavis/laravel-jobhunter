@@ -25,6 +25,9 @@ class UpdateStatusTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::disableForeignKeyConstraints();
+        Schema::table('status', function (BluePrint $table) {
+            $table->dropForeign('status_user_id_foreign');
+        });
     }
 }
